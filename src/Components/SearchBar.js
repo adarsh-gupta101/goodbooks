@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import image from "./Backgroundimage.jpg";
 import "./search.css";
 import { auth, provider } from "./firebase";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const [search, setsearch] = useState();
@@ -40,10 +41,17 @@ function SearchBar() {
           placeholder="Search a Book"
           onChange={(e) => setsearch(e.target.value)}
         ></input>
-
-        <Button onClick={fetchdata} variant="contained" color="secondary">
-          Search
-        </Button>
+        <div className="buu">
+          <Button onClick={fetchdata} variant="contained" color="secondary">
+            Search
+          </Button>
+          <Link to="/new">
+            {" "}
+            <Button color="primary" variant="contained">
+              Add or view Book by users.
+            </Button>
+          </Link>
+        </div>
       </div>
       <div className="effect"></div>
       <div className="books">
