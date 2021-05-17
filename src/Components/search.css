@@ -1,8 +1,22 @@
 .background__image {
+  top: 0;
   width: 99vw;
   height: 99vh;
   position: relative;
   box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+}
+.books {
+  margin-top: -102px;
+  position: absolute;
+}
+.user__image {
+  top: 0;
+  width: 80px;
+  z-index: 1;
+  right: 0;
+  height: auto;
+  position: absolute;
+  border-radius: 50%;
 }
 .input_box {
   position: absolute;

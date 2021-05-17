@@ -4,10 +4,12 @@ import Books from "./Books";
 import Button from "@material-ui/core/Button";
 import image from "./Backgroundimage.jpg";
 import "./search.css";
+import { auth, provider } from "./firebase";
 
 function SearchBar() {
   const [search, setsearch] = useState();
   const [books, setbooks] = useState([]);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   async function fetchdata() {
     await axios
@@ -21,10 +23,21 @@ function SearchBar() {
   return (
     <div className="searchbar">
       <img className="background__image" src={image} />
+      <img
+        onClick={() => {
+          auth.signOut().then(() => {
+            localStorage.removeItem("user");
+            setUser(null);
+          });
+        }}
+        className="user__image"
+        src={user?.photo}
+      />
       <div className="input_box">
         <input
           className="inputbox"
           value={search}
+          placeholder="Search a Book"
           onChange={(e) => setsearch(e.target.value)}
         ></input>
 
@@ -33,10 +46,11 @@ function SearchBar() {
         </Button>
       </div>
       <div className="effect"></div>
-
-      {books.map((book) => {
-        return <Books book={book} />;
-      })}
+      <div className="books">
+        {books.map((book) => {
+          return <Books book={book} />;
+        })}
+      </div>
     </div>
   );
 }
