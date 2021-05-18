@@ -25,7 +25,7 @@ function Login(props) {
       <div className="Content">
         <img
           id="login"
-          src="https://lh3.googleusercontent.com/proxy/AYQueWWVMDIvNkPjTfC_5hDNHt8eH5fwzk6g7SXJV6uzY6znWL6OvgMVV7MYY9H-Oaz9EzMEKCz6xWiGtJuarrBxyjURcAY"
+          src="https://www.pngfind.com/pngs/m/73-734741_free-png-download-very-old-book-png-images.png"
         />
         <h1>Sign in Bibliophile</h1>
         <button id="button" onClick={() => signIn()}>
